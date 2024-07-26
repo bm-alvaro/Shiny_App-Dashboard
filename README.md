@@ -1,23 +1,45 @@
-# ShinyDevTask
+# ShinyDev - Biodiversity Observations in Poland
 
-Placeholder for Readme File.
+## Overview
 
-Pending tasks:
+This Shiny app provides an interactive platform to explore and visualize biodiversity data specific to Poland. Users can search for species, view their geographical distribution, analyze observation trends over time, and access related images with photographer credits.
 
--   Decompose independent functionalities into shinyModules.
+## Using the Application
 
--   Add unit tests.
+1.  **Dashboard Tab**
+    -   **Search for Species**: Type the scientific or common name of the species you are interested in.
+    -   **Select Date Range**: Choose a start and end date to filter the observations accordingly.
+    -   **Search Button**: Click this to apply your search criteria and view the filtered results.
+2.  **Map**
+    -   Displays species observation locations on an interactive map.
+    -   Click on map markers to view details about specific observations.
+3.  **Timeline**
+    -   Presents a bar chart showing the number of observations for the selected species by year.
+4.  **Images**
+    -   Shows images related to the selected species, if available. The image section also includes the photographer’s name.
+5.  **About Tab**
+    -   Provides background information on the application and credits the author.
 
--   Add images function.
+## App Structure
 
--   Preprocess multimedia data.
+-   **User Interface (`ui.R`)**: Defines the layout and appearance of the app.
+-   **Server Logic (`server.R`)**: Contains the app's functionality and reactive components.
+-   **Modules (`modules/`)**: Contains reusable components for different parts of the app:
+    -   `species_selectionModule.R`: Manages species search and date range input.
+    -   `mapModule.R`: Handles the map display and updates.
+    -   `timelineModule.R`: Manages the timeline plot.
+    -   `imagesModule.R`: Displays images and photographer information.
+-   **Data (`data/`)**: Directory for CSV files containing the biodiversity and multimedia data.
+-   **Preprocessing (`preprocessing/`)**: Directory containing the script used to filter and preprocess raw data.
 
--   Document code.
+## Getting Started
 
--   Improve aesthetics.
+To explore the app, visit the live version hosted at [ShinyApps.io](#). Use the app's interactive features to search for species, view their geographical distribution, and analyze observation trends.
 
--   Add "About" tab.
+## Contributing
 
--   Share APP.
+Feedback and contributions are welcome! If you have suggestions or issues, please reach out via [GitHub Issues](https://github.com/bm-alvaro/ShinyDevTask/issues).
 
-*Author: Álvaro Benítez, 2024.*
+## Contact
+
+For questions or feedback, please contact Álvaro Benítez at [balvarodev@gmail.com](mailto:balvarodev@gmail.com).
