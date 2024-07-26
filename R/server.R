@@ -1,9 +1,11 @@
-poland_data <- read.csv("C:/Users/Alvaro/Desktop/Alvaro/Scripts/Appsilon/ShinyDevTask/data/poland_data.csv")
-
 server <- function(input, output, session) {
   
-  updateSelectizeInput(session, "species_search", 
+  updateSelectizeInput(session, "species_search",
                        choices = unique(c(poland_data$scientificName, poland_data$vernacularName)), 
+                       options = list(
+                         create = FALSE, 
+                         placeholder = 'Type to search...',
+                         onInitialize = I('function() { this.setValue(""); }')), 
                        server = TRUE)
   
   observeEvent(input$search_button, {
@@ -46,11 +48,28 @@ server <- function(input, output, session) {
         )
     })
     
+    # Update species text
     output$species_output <- renderUI({
       HTML(paste((paste(sep = " ", "Scientific Name:", unique(species_data$scientificName))), (paste(sep = " ", "Common Name:", unique(species_data$vernacularName))), sep = "<br/>"))
     })
+    
+    # Filter multimedia data for matching IDs
+    matched_image <- multimedia_data %>%
+      filter(CoreId %in% species_data$id) %>%
+      slice(1) %>%
+      pull(accessURI)
+    
+    # Update images output
+    output$images_output <- renderUI({
+      if (length(matched_image) > 0) {
+        tags$img(src = matched_image, style = "width:100%; max-width:100%; height:auto;")
+      } else {
+        "No image available for this species."
+      }
+    })
+    
   })
-
+  
   # Default map view
   output$map <- renderLeaflet({
     leaflet(data = poland_data) %>%
