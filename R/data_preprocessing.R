@@ -27,8 +27,10 @@ write_csv(poland_data, file = "./data/poland_data.csv")
 
 multimedia_data <- read_csv(multimedia_file)
 
-multimedia_data2 <- multimedia_data %>%
+multimedia_data <- multimedia_data %>%
   filter(CoreId %in% poland_data$id)
+
+write_csv(multimedia_data, file = "./data/multimedia_data.csv")
 
 # hist(as.Date(poland_data$eventDate), breaks="years", main="Years Histogram", xlab="Date", ylab="Frequency", col="blue")
 # poland_data <- poland_data %>% filter(as.Date(eventDate) > "2004-12-31")
