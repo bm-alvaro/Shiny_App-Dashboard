@@ -1,21 +1,20 @@
-library(shiny)
-library(leaflet)
-library(ggplot2)
-library(dplyr)
-library(shinythemes)
-library(shinycssloaders)
-
 ui <- fluidPage(theme = shinytheme("flatly"),
                 navbarPage("Biodiversity Observations in Poland:",
-                           tabPanel("Map", 
+                           tabPanel("Dashboard", 
                                     sidebarPanel(
-                                      selectizeInput("species_search", "Enter Species Name:", choices = NULL, 
-                                                     options = list(create = TRUE, placeholder = 'Type to search...')),
+                                      selectizeInput("species_search", 
+                                                     "Enter Species Name:", 
+                                                     choices = NULL,
+                                                     options = list(
+                                                       create = FALSE, 
+                                                       placeholder = 'Type to search...',
+                                                       onInitialize = I('function() { this.setValue(""); }'))),
                                       dateRangeInput("date_range", "Select Date Range:",
                                                      start = min(poland_data$eventDate),
                                                      end = max(poland_data$eventDate)),
                                       actionButton("search_button", "Search"),
-                                      htmlOutput("species_output")
+                                      htmlOutput("species_output"),
+                                      uiOutput("images_output")
                                     ),
                                     mainPanel(
                                       leafletOutput("map") %>% withSpinner(color="#3E3F3A"),
