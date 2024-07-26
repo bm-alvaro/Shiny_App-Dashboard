@@ -6,6 +6,7 @@ timelineUI <- function(id) {
 timelineServer <- function(id, species_data) {
   moduleServer(id, function(input, output, session) {
     output$timeline <- renderPlot({
+      # Plot for all data if no species data is selected
       if (is.null(species_data())) {
         poland_data %>%
           mutate(year = as.integer(format(as.Date(eventDate), "%Y"))) %>%
@@ -25,6 +26,7 @@ timelineServer <- function(id, species_data) {
             panel.grid.major = element_line(color = "gray90"),
             panel.grid.minor = element_blank()
           )
+      # Plot for selected species data
       } else {
         species_data() %>%
           mutate(year = as.integer(format(as.Date(eventDate), "%Y"))) %>%

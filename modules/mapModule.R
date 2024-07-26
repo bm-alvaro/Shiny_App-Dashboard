@@ -6,11 +6,14 @@ mapUI <- function(id) {
 mapServer <- function(id, species_data) {
   moduleServer(id, function(input, output, session) {
     output$map <- renderLeaflet({
+      # Default map view if no species data is selected
       if (is.null(species_data())) {
         leaflet(data = poland_data) %>%
           addTiles() %>%
-          setView(lng = 19.1451, lat = 51.9194, zoom = 6) %>%
+          # Set the focus of the map centered over Poland
+          setView(lng = 19.1451, lat = 51.9194, zoom = 6) %>% 
           addCircleMarkers(~longitudeDecimal, ~latitudeDecimal, popup = ~scientificName, color = "#0033FF33")
+      # Map view when species data is selected
       } else {
         leaflet(data = species_data()) %>%
           addTiles() %>%

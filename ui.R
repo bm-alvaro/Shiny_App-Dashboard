@@ -1,4 +1,8 @@
+# User Interface definition for the Shiny App
+
 ui <- fluidPage(theme = shinytheme("flatly"),
+
+                # CSS class used to enhance element distribution on the page.
                 tags$style(
                   HTML("
                     .custom-spacing {
