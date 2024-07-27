@@ -5,7 +5,6 @@ imagesUI <- function(id) {
 
 imagesServer <- function(id, species_data) {
   moduleServer(id, function(input, output, session) {
-    imageUrls_react <- reactiveVal(NULL)
     output$images_output <- renderUI({
       # Retrieve the current species data
       species_data <- species_data()
@@ -19,10 +18,9 @@ imagesServer <- function(id, species_data) {
         filter(CoreId %in% species_data$id)
       
       if (nrow(matched_image) > 0) {
-        imageUrls <- matched_image$accessURI
-        imageUrls_react(imageUrls)
+        imageUrls <<- matched_image$accessURI
         photographer <- matched_image$creator
-        species_selectionServer("species_selection", species_data, imageUrls_react)
+        species_data <- NULL
         # tagList(
           # tags$img(class = "associated_img", src = image_url, style = "width:100%; max-width:100%; height:auto;"),
           # tags$div(class = "img_foot", paste("Photo by:", photographer))
