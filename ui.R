@@ -1,4 +1,8 @@
 # User Interface definition for the Shiny App
+source("modules/species_selectionModule.R")
+source("modules/mapModule.R")
+source("modules/timelineModule.R")
+source("modules/imagesModule.R")
 
 ui <- fluidPage(theme = shinytheme("flatly"),
 

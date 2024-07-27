@@ -1,11 +1,11 @@
 species_selectionUI <- function(id) {
   ns <- NS(id)
   tagList(
-    selectizeInput(ns("species_search"), 
-                   "Enter Species Name:", 
+    selectizeInput(ns("species_search"),
+                   "Enter Species Name:",
                    choices = NULL,
                    options = list(
-                     create = FALSE, 
+                     create = FALSE,
                      placeholder = 'Type to search...',
                      onInitialize = I('function() { this.setValue(""); }'))),
     dateRangeInput(ns("date_range"), "Select Date Range:",
