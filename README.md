@@ -34,7 +34,7 @@ This Shiny app provides an interactive platform to explore and visualize biodive
 
 ## Getting Started
 
-To explore the app, visit the live version hosted at [ShinyApps.io](#). Use the app's interactive features to search for species, view their geographical distribution, and analyze observation trends.
+To explore the app, visit the live version hosted at [ShinyApps.io](https://alvarobm.shinyapps.io/ShinyDevTask/). Use the app's interactive features to search for species, view their geographical distribution, and analyze observation trends.
 
 ## Contributing
 
