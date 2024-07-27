@@ -20,11 +20,10 @@ imagesServer <- function(id, species_data) {
       if (nrow(matched_image) > 0) {
         imageUrls <<- matched_image$accessURI
         photographer <- matched_image$creator
-        species_data <- NULL
-        # tagList(
+        tagList(
           # tags$img(class = "associated_img", src = image_url, style = "width:100%; max-width:100%; height:auto;"),
           # tags$div(class = "img_foot", paste("Photo by:", photographer))
-        # )
+        )
         # Message when no image is found
       } else {
         "No image available for this species."

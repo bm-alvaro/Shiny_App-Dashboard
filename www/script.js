@@ -1,9 +1,5 @@
-  var currentSlide = 0;
-  
 function showCarousel(imageUrls) {
-  
-  var carouselContainer = '';
-  carouselContainer = document.getElementById('carouselContainer');
+  var carouselContainer = document.getElementById('carouselContainer');
 
   // Limpiar cualquier contenido previo
   carouselContainer.innerHTML = '';
@@ -16,15 +12,13 @@ function showCarousel(imageUrls) {
     carouselSlide.className = 'carousel-slide' + (index === 0 ? ' active' : '');
 
     var img = document.createElement('img');
-    img.src = url + "?t=" + new Date().getTime();
+    img.src = url;
     img.alt = 'Image ' + (index + 1);
 
     carouselSlide.appendChild(img);
     carouselInner.appendChild(carouselSlide);
   });
 
-  imageUrls = '';
-  
   var prev = document.createElement('a');
   prev.className = 'carousel-control-prev';
   prev.innerHTML = '&#10094;';
@@ -39,6 +33,8 @@ function showCarousel(imageUrls) {
   carouselInner.appendChild(next);
 
   carouselContainer.appendChild(carouselInner);
+
+  var currentSlide = 0;
 
   function changeSlide(n) {
     var slides = document.getElementsByClassName('carousel-slide');
