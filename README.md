@@ -36,6 +36,10 @@ This Shiny app provides an interactive platform to explore and visualize biodive
 
 To explore the app, visit the live version hosted at [ShinyApps.io](https://alvarobm.shinyapps.io/ShinyDevTask/). Use the app's interactive features to search for species, view their geographical distribution, and analyze observation trends.
 
+## Development Branch
+
+After adding CSS (extra task "Beautiful UI Skill"), I tried to add an image carousel using JavaScript (extra task "JavaScript Skill"). However, I encountered some code errors that I couldn't resolve in time for the deadline, so I will work on fixing them later to complete the task. This work is available in the "development" branch and deployed at the following link: [Unstable App](https://alvarobm.shinyapps.io/ShinyDevTask/)
+
 ## Contributing
 
 Feedback and contributions are welcome! If you have suggestions or issues, please reach out via [GitHub Issues](https://github.com/bm-alvaro/ShinyDevTask/issues).
