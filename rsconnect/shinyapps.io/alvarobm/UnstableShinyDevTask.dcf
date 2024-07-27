@@ -1,0 +1,12 @@
+name: UnstableShinyDevTask
+title: UnstableShinyDevTask
+username: alvarobm
+account: alvarobm
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12373198
+bundleId: 8914844
+url: https://alvarobm.shinyapps.io/UnstableShinyDevTask/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
