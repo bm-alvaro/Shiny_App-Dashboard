@@ -15,16 +15,14 @@ imagesServer <- function(id, species_data) {
       
       # Retrieve the first matching image record
       matched_image <- multimedia_data %>%
-        filter(CoreId %in% species_data$id) %>%
-        slice(1)
+        filter(CoreId %in% species_data$id)
       
       if (nrow(matched_image) > 0) {
-        image_url <- matched_image$accessURI
+        imageUrls <<- matched_image$accessURI
         photographer <- matched_image$creator
-        
         tagList(
-          tags$img(src = image_url, style = "width:100%; max-width:100%; height:auto;"),
-          tags$div(paste("Photo by:", photographer), style = "font-size: 0.8em; color: #888; text-align: right; margin-top: 5px;")
+          # tags$img(class = "associated_img", src = image_url, style = "width:100%; max-width:100%; height:auto;"),
+          # tags$div(class = "img_foot", paste("Photo by:", photographer))
         )
         # Message when no image is found
       } else {
@@ -33,3 +31,4 @@ imagesServer <- function(id, species_data) {
     })
   })
 }
+

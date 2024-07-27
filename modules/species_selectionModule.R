@@ -30,8 +30,8 @@ species_selectionServer <- function(id, update) {
     observeEvent(input$search_button, {
       species <- input$species_search
       date_range <- input$date_range
-      
       update(list(species = species, date_range = date_range))
+      runjs(sprintf("showCarousel(%s);",toJSON(imageUrls)))
     })
     
     output$species_output <- renderUI({
