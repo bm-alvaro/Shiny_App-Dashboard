@@ -32,7 +32,6 @@ species_selectionServer <- function(id, update) {
       date_range <- input$date_range
       update(list(species = species, date_range = date_range))
       runjs(sprintf("showCarousel(%s);",toJSON(imageUrls)))
-      session$sendCustomMessage("refrescarDiv", NULL)
     })
     
     output$species_output <- renderUI({
