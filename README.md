@@ -38,7 +38,7 @@ To explore the app, visit the live version hosted at [ShinyApps.io](https://alva
 
 ## Development Branch
 
-After adding CSS (extra task "Beautiful UI Skill"), I tried to add an image carousel using JavaScript (extra task "JavaScript Skill"). However, I encountered some code errors that I couldn't resolve in time for the deadline, so I will work on fixing them later to complete the task. This work is available in the "development" branch and deployed at the following link: [Unstable App](https://alvarobm.shinyapps.io/UnstableShinyDevTask/)
+After adding CSS (extra task "Beautiful UI Skill"), I tried to add an image carousel using JavaScript (extra task "JavaScript Skill"). However, I encountered some code errors that I couldn't resolve in time for the deadline, so I will work on fixing them later to complete the task. This work is available in the "development" branch and deployed at the following link: [Unstable App](https://alvarobm.shinyapps.io/ShinyDevTask/)
 
 ## Contributing
 
