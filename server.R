@@ -8,7 +8,7 @@ source("modules/imagesModule.R")
 server <- function(input, output, session) {
   # Creating a reactive value to store species data when updated by user input
   selected_data <- reactiveVal(NULL)
-  
+  imageUrls_react <- reactiveVal(NULL)
   # Filtering data on user input's conditions
   species_selectionServer("species_selection", function(update) {
     species <- update$species

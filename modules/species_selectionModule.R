@@ -17,7 +17,7 @@ species_selectionUI <- function(id) {
   )
 }
 
-species_selectionServer <- function(id, update) {
+species_selectionServer <- function(id, update, images = NULL) {
   moduleServer(id, function(input, output, session) {
     updateSelectizeInput(session, "species_search",
                          choices = unique(c(poland_data$scientificName, poland_data$vernacularName)), 
@@ -26,14 +26,20 @@ species_selectionServer <- function(id, update) {
                            placeholder = 'Type to search...',
                            onInitialize = I('function() { this.setValue(""); }')), 
                          server = TRUE)
-    
+    if (is.null(images)) {
     observeEvent(input$search_button, {
       species <- input$species_search
       date_range <- input$date_range
       update(list(species = species, date_range = date_range))
-      runjs(sprintf("showCarousel(%s);",toJSON(imageUrls)))
-      session$sendCustomMessage("refrescarDiv", NULL)
-    })
+    })} else {
+      imageUrls <- images()
+      observeEvent(input$search_button, {
+        species <- input$species_search
+        date_range <- input$date_range
+        update(list(species = species, date_range = date_range))
+        runjs(sprintf("showCarousel(%s);",toJSON(imageUrls)))
+      })
+    }
     
     output$species_output <- renderUI({
       NULL  # Placeholder, actual rendering will be handled in main server
@@ -44,3 +50,30 @@ species_selectionServer <- function(id, update) {
     })
   })
 }
+
+# species_selectionImgServer <- function(id, update, images) {
+#   moduleServer(id, function(input, output, session) {
+#     updateSelectizeInput(session, "species_search",
+#                          choices = unique(c(poland_data$scientificName, poland_data$vernacularName)), 
+#                          options = list(
+#                            create = FALSE, 
+#                            placeholder = 'Type to search...',
+#                            onInitialize = I('function() { this.setValue(""); }')), 
+#                          server = TRUE)
+#     imageUrls <- images()
+#     observeEvent(input$search_button, {
+#       species <- input$species_search
+#       date_range <- input$date_range
+#       update(list(species = species, date_range = date_range))
+#       runjs(sprintf("showCarousel(%s);",toJSON(imageUrls)))
+#     })
+#     
+#     output$species_output <- renderUI({
+#       NULL  # Placeholder, actual rendering will be handled in main server
+#     })
+#     
+#     output$images_output <- renderUI({
+#       NULL  # Placeholder, actual rendering will be handled in main server
+#     })
+#   })
+# }
