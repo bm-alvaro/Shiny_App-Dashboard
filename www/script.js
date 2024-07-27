@@ -1,8 +1,5 @@
   var currentSlide = 0;
-  Shiny.addCustomMessageHandler('refrescarDiv', function(message) {
-        $('#carouselContainer').html('');
-      });
-      
+  
 function showCarousel(imageUrls) {
   
   var carouselContainer = '';
