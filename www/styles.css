@@ -100,3 +100,9 @@ body {
 .carousel-slide.active {
   display: block;
 }
+
+#carouselContainer {
+  padding-top: 20px;
+  width: auto;
+  height: auto;
+}
