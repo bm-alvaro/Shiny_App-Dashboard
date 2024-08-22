@@ -1,8 +1,8 @@
-# Shiny App - Biodiversity Observations in Poland
+# Shiny App - Dashboard
 
 ## Overview
 
-This Shiny app provides an interactive platform to explore and visualize biodiversity data specific to Poland. Users can search for species, view their geographical distribution, analyze observation trends over time, and access related images with photographer credits.
+This Shiny app provides an interactive platform to explore and visualize biodiversity data. Users can search for species, view their geographical distribution, analyze observation trends over time, and access related images with photographer credits.
 
 ## Using the Application
 
